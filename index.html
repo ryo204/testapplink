@@ -5,12 +5,18 @@
 </head>
 
 <body>
-    <h1>You are being redirected to google store. Please install the application to continue.</h1>
+    <h1>You are being redirected to google store in
+        <em id='time'>1
+</em>. Please install the application to continue.</h1>
 </body>
 <script>
-    setTimeout(function () {
-        location.assign('https://play.google.com/store/search?q=dreammanagement');
-    }, 3000);
+    var time = document.getElementById('time');
+    setTimeout(function foo(currentTime) {
+        console.log(currentTime)
+        time.innerHTML = currentTime;
+        (currentTime == 0) && location.assign('https://play.google.com/store/search?q=dreammanagement') || setTimeout(foo, 1000, --currentTime);
+    }, 1000, 3);
+
 </script>
 
 </html>
